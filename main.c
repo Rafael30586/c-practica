@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main(){
     printf("Hola mundo\n");  // Esto es un comentario
@@ -36,6 +37,7 @@ int main(){
     printf("El tamaño de la variable pi en bytes es: ");
     printf("%zu\n", sizeof(pi));
 
+
     // Tipos extendidos
     short int unaEdad = 35; // Ocupa 2 bytes, puede ir desde -32768 hasta 32767 y el formatter es %hd
     unsigned int puertosBienConocidos = 1024; // Ocupa 2 o 4 bytes; en el primer caso va desde 0 hasta 65535, y en el segundo va desde 0 hasta 4.294.967.295; el formatter es "%u"
@@ -49,6 +51,65 @@ int main(){
     float resultado = (float) 5 / 2;
     printf("El resultado de la división es: ");
     printf("%f\n",resultado);
+
+    // Constantes
+    const int constante = 13;
+
+    // Booleanos
+
+    bool verdadero = true;
+    printf("¿Es verdadero?: ");
+    printf("%d\n",verdadero);
+
+    // Condicionales if else
+
+    if(pi > 3.0){
+        printf("pi es mayor\n");
+    }else{
+        printf("pi es menor\n");
+    }
+
+    // Switch
+
+    switch(estaciones){
+        case 1: printf("Es una sola estación\n");break;
+        case 2: printf("Son dos estaciones\n");break;
+        case 3: printf("Son tres estaciones\n");break;
+        case 4: printf("Son cuatro estaciones\n");break;
+        default: printf("Son muchas estaciones\n    ");break;
+    }
+
+    // Bucle while
+
+    int contador = 10;
+    while(contador > 3){
+        printf("Hola\n");
+        contador-=2;
+    }
+
+    // Bucle for
+
+    for(int i=0;i<5;i++){
+        printf("Vuelta: ");
+        printf("%d\n",i);
+    }
+
+    // Arrays
+
+    int numeros[] = {45,10,48,92,55,60};
+
+    int tamanioDelArray = (sizeof(numeros)/sizeof(numeros[0]));
+
+    printf("El tamaño del array es: ");
+    printf("%d\n",tamanioDelArray);
+
+    // Strings, en C los strings son arrays de char 
+
+    char saludo[] = "Hola mundo";
+    printf("%s\n",saludo);
+
+    char personaje[] = {'k','i','r','b','y','\0'};
+    printf("%s\n",personaje);
 
     return 0;
 }
