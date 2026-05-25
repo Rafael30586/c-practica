@@ -111,5 +111,39 @@ int main(){
     char personaje[] = {'k','i','r','b','y','\0'};
     printf("%s\n",personaje);
 
+    // Entrada del usuario
+    int edad;
+    printf("¿Cuantos años tenés?\n");
+    scanf("%d",&edad);
+    printf("Así que tenés ");
+    printf("%d",edad);
+    printf(" años, eh\n");
+
+    // Direcciones de memoria
+    printf("La dirección de memoria de estacione;s es:");
+    printf("%p\n",&estaciones);
+    printf("La dirección de memoria de pi es:");
+    printf("%p\n",&pi);
+    printf("La dirección de memoria de personaje[2] es:");
+    printf("%p\n",&personaje[2]);
+    printf("La dirección de memoria de personaje[3] es:");
+    printf("%p\n",&personaje[3]);
+
+    // Punteros
+
+    int puntaje = 10;
+    int *ptr = &puntaje;
+    printf("La dirección de memoria del puntaje es: ");
+    printf("%p\n",ptr);
+    printf("El valor al que apunta el puntero ptr es: ");
+    printf("%d\n",*ptr);
+    printf("Imprimiendo la dirección de memoria del puntero: ");
+    printf("%p\n",&ptr);
+    
+    printf("Imprimiendo el array: ");
+    printf("%p\n",numeros);
+    printf("Dirección de memoria del primer elemento del array: ");
+    printf("%p\n",&numeros[0]);
+
     return 0;
 }
