@@ -145,5 +145,17 @@ int main(){
     printf("Dirección de memoria del primer elemento del array: ");
     printf("%p\n",&numeros[0]);
 
+    int *puntero = numeros;
+    printf("Puntero a números: ");
+    printf("%d\n",*puntero);
+    puntero = puntero + 2;
+    printf("Puntero a números después de suma: ");
+    printf("%d\n",*puntero);
+
+    int *puntero1 = &numeros[1];
+    int *puntero2 = &numeros[4];
+    printf("Distancia entre puntero1 y puntero2: ");
+    printf("%d\n",puntero2 - puntero1);
+
     return 0;
 }
