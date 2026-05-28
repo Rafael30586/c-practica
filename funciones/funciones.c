@@ -4,9 +4,9 @@ void saludar();
 void saludar2();
 void saludar3();
 int sumar(int, int);
-
-
 int restarleALaSuma(int, int, int, int (int,int));
+void nombrarMejorFinalFantasy();
+void ejecutarCallback(void ());
 
 int main(){
 
@@ -30,6 +30,8 @@ int main(){
         saludos[i]();
     }
 
+    ejecutarCallback(nombrarMejorFinalFantasy);
+
     return 0;
 }
 
@@ -52,6 +54,17 @@ int sumar(int x, int y){
 int restarleALaSuma(int x, int y ,int a, int (*funcion) (int,int)){
     int suma2 = funcion(x,y);
     return suma2 - a;
+}
+
+void nombrarMejorFinalFantasy(){
+    printf("El mejor es Final Fantasy XII\n");
+}
+
+void ejecutarCallback(void (*callback)()){
+    printf("Antes del callback\n");
+    callback();
+    printf("Después del callback\n");
+
 }
 
 

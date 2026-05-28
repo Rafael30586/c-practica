@@ -157,5 +157,13 @@ int main(){
     printf("Distancia entre puntero1 y puntero2: ");
     printf("%d\n",puntero2 - puntero1);
 
+    int diasDeLaSemana = 7;
+    int *puntero3 = &diasDeLaSemana;
+    int **puntero4 = &puntero3;
+    printf("Días de la semana: %d\n", diasDeLaSemana);
+    printf("Puntero3: %p\n",puntero3);
+    printf("Puntero4: %p\n",puntero4);
+    printf("Adonde apunta puntero4: %d\n",**puntero4);
+
     return 0;
 }
