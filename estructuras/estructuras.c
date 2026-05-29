@@ -39,6 +39,10 @@ int main(){
     printf("Primera letra del nombre es: %c\n",per1.primeraLetraDelNombre);
     printf("El año de lanzamiento de su obra es: %d\n",per1.obra.anioLanzamiento);
 
+    struct personaje *punteroPersonaje = &per1;
+    punteroPersonaje->primeraLetraDelNombre = 'R';
+    printf("Letra del personaje cambiada: %c\n", per1.primeraLetraDelNombre);
+
     
     return 0;
 
