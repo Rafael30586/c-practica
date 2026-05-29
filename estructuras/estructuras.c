@@ -5,6 +5,16 @@ struct persona{
     char primerLetraApellido;
 };
 
+struct obra{
+    int anioLanzamiento;
+    char primeraLetraDelNombre;
+};
+
+struct personaje{
+    char primeraLetraDelNombre;
+    struct obra obra;
+};
+
 int main(){
 
     struct persona p1;
@@ -21,6 +31,13 @@ int main(){
     struct persona p3 = p2;
     printf("El DNI es: %d\n",p2.dni);
     printf("La primera letra del apellido es: %c\n",p2.primerLetraApellido);
+
+    struct obra o1 = {2006, 'F'};
+    struct personaje per1 = {'B',o1};
+    // per1.primeraLetraDelNombre = 'B';
+    // per1.obra = o1;
+    printf("Primera letra del nombre es: %c\n",per1.primeraLetraDelNombre);
+    printf("El año de lanzamiento de su obra es: %d\n",per1.obra.anioLanzamiento);
 
     
     return 0;
