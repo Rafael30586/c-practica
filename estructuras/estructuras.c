@@ -15,6 +15,11 @@ struct personaje{
     struct obra obra;
 };
 
+union otraPersona{
+    int dni;
+    char primeraLetraDelNombre;
+};
+
 int main(){
 
     struct persona p1;
@@ -42,6 +47,13 @@ int main(){
     struct personaje *punteroPersonaje = &per1;
     punteroPersonaje->primeraLetraDelNombre = 'R';
     printf("Letra del personaje cambiada: %c\n", per1.primeraLetraDelNombre);
+
+    union otraPersona p4;
+    p4.dni = 59100271;
+    p4.primeraLetraDelNombre = 'T';
+    printf("Primera letra del nombre de la persona %c\n",p4.primeraLetraDelNombre);
+    printf("DNI de la persona %d\n", p4.dni);
+    printf("Tamaño de unión: %zu bytes\n",sizeof(p4));
 
     
     return 0;
