@@ -20,6 +20,15 @@ union otraPersona{
     char primeraLetraDelNombre;
 };
 
+typedef float temperatura;
+
+void mostrarTemperaturas(temperatura, temperatura);
+
+typedef struct{
+    char marca[30];
+    int anio;
+} coche;
+
 int main(){
 
     struct persona p1;
@@ -55,7 +64,22 @@ int main(){
     printf("DNI de la persona %d\n", p4.dni);
     printf("Tamaño de unión: %zu bytes\n",sizeof(p4));
 
+    temperatura temperaturaMinima = 21.8;
+    temperatura temperaturaMaxima = 30.1;
     
+    mostrarTemperaturas(temperaturaMinima, temperaturaMaxima);
+    mostrarTemperaturas(12.8,20.6);
+
+    float otraTemperatura = temperaturaMinima;
+
+    coche cochesito;
+    cochesito.anio = 2023;
+
     return 0;
 
+}
+
+void mostrarTemperaturas(temperatura minima, temperatura maxima){
+    printf("La temperatura mínima es %f\n",minima);
+    printf("La temperatura máxima es %f\n",maxima);
 }
