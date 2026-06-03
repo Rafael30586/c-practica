@@ -29,6 +29,18 @@ typedef struct{
     int anio;
 } coche;
 
+struct pruebaPadding{
+    char a;
+    int b;
+    char c;
+};
+
+struct pruebaPadding2{
+    int b;
+    char a;
+    char c;
+};
+
 int main(){
 
     struct persona p1;
@@ -74,6 +86,9 @@ int main(){
 
     coche cochesito;
     cochesito.anio = 2023;
+
+    printf("Primera prueba de padding: %zu\n", sizeof(struct pruebaPadding));
+    printf("Segunda prueba de padding: %zu\n", sizeof(struct pruebaPadding2));
 
     return 0;
 
