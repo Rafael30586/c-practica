@@ -1,1 +1,1 @@
-* probar que pasa si a la función printf le pasamos como argumento una opción "incorrecta" acompañando a la variable, por ejemplo printf("%f",<variable_char>)
+Realizar el código para construir una lista enlazada por mi cuenta, en lo posbile sin utilizar ayudas
