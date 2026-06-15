@@ -8,6 +8,7 @@ typedef struct Nodo{
 
 void imprimirLista(nodo *);
 void agregarNodo(nodo *,int);
+void agregarNodoAlPrincipio(nodo **, int);
 
 int main(){
     nodo * head = NULL;
@@ -28,6 +29,9 @@ int main(){
     imprimirLista(head);
 
     agregarNodo(head,4);
+    imprimirLista(head);
+
+    agregarNodoAlPrincipio(&head, -1);
     imprimirLista(head);
     
 
@@ -52,6 +56,7 @@ void imprimirLista(nodo * head){
 void agregarNodo(nodo * head, int valor){
     nodo * nuevoNodo = (nodo *) malloc(sizeof(* head));
     nuevoNodo->valor = valor;
+    nuevoNodo->proximo = NULL;
 
     nodo * actual = head;
 
@@ -60,5 +65,14 @@ void agregarNodo(nodo * head, int valor){
     }
 
     actual->proximo = nuevoNodo;
+
+}
+
+void agregarNodoAlPrincipio(nodo ** punteroAHead, int valor){
+    nodo * nuevoNodo = (nodo *)malloc(sizeof(** punteroAHead));
+    nuevoNodo->valor = valor;
+
+    nuevoNodo->proximo = * punteroAHead;
+    * punteroAHead = nuevoNodo;
 
 }
