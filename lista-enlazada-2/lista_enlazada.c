@@ -11,6 +11,7 @@ void agregarNodo(nodo *,int);
 void agregarNodoAlPrincipio(nodo **, int);
 // void agregarNodo2(nodo *, int);
 void quitarNodoAlPrincipio(nodo **);
+void quitarUltimoNodo(nodo *);
 
 int main(){
     nodo * head = NULL;
@@ -42,6 +43,9 @@ int main(){
     //imprimirLista(head);
 
     quitarNodoAlPrincipio(&head);
+    imprimirLista(head);
+
+    quitarUltimoNodo(head);
     imprimirLista(head);
     
     return 0;
@@ -101,10 +105,20 @@ void agregarNodoAlPrincipio(nodo ** punteroAHead, int valor){
 
 }
 
-void quitarNodoAlPrincipio(nodo ** punteroAHead){ // Estudiar esta función para entenderla bien
+void quitarNodoAlPrincipio(nodo ** punteroAHead){
     nodo * temporal = (*punteroAHead)->proximo;
     free(* punteroAHead);
 
     * punteroAHead = temporal;
+}
 
+void quitarUltimoNodo(nodo * head){
+    nodo ** actual = &head;
+
+    while((*actual)->proximo->proximo != NULL){
+        actual = &((*actual)->proximo);
+    }
+
+    free(*actual);
+    * actual = NULL;
 }
