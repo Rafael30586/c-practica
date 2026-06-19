@@ -136,6 +136,7 @@ int quitarUnNodoPuntual(nodo ** punteroAHead, int valorDelNodo){
     if((*punteroAHead)->valor == valorDelNodo){
         free(*punteroAHead);
         *punteroAHead = segundoPuntero;
+        valorPresente = true;
         return 0;
     }
     
