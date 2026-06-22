@@ -10,6 +10,7 @@ typedef struct Nodo{
 
 int agregarNodo(nodo **, int);
 void imprimirLista(nodo *);
+int agregarNodoAlPrincipio(nodo **, int);
 
 int main(){
     nodo * cabeza = NULL;
@@ -19,16 +20,21 @@ int main(){
     agregarNodo(&cabeza, 3);
     agregarNodo(&cabeza, 4);
     agregarNodo(&cabeza, 5);
+    agregarNodo(&cabeza, 6);
+    agregarNodo(&cabeza, 7);
+    agregarNodo(&cabeza, 8);
+    agregarNodo(&cabeza, 9);
+    agregarNodo(&cabeza, 10);
 
-/*    
-    cabeza = (nodo *)malloc(sizeof(*cabeza));
-    cabeza->valor = 1;
+    imprimirLista(cabeza);
+    
+    agregarNodoAlPrincipio(&cabeza, -1);
+    agregarNodoAlPrincipio(&cabeza, -2);
+    agregarNodoAlPrincipio(&cabeza, -3);
+    agregarNodoAlPrincipio(&cabeza, -4);
+    agregarNodoAlPrincipio(&cabeza, -5);
 
-    cabeza->anterior = NULL;
-    cabeza->siguiente = (nodo *)malloc(sizeof(*cabeza));
-    cabeza->siguiente->valor = 2;
-    cabeza->siguiente->anterior = cabeza;
-*/    
+
     imprimirLista(cabeza);
 
     return 0;
@@ -52,13 +58,7 @@ int agregarNodo(nodo ** cabeza, int valor){
         return 0;
     }
 
-    /*
-    if(cabeza->siguiente == NULL){
-        cabeza->siguiente = nuevoNodo;
-        return 0;
-    }*/
-
-    // A partir de acá parece estar el problema
+  
     while(actual->siguiente != NULL){
         actual = actual->siguiente;
     }
@@ -67,7 +67,7 @@ int agregarNodo(nodo ** cabeza, int valor){
     nuevoNodo->anterior = actual;
     return 0;
 
-    // Corregir este método
+   // Este método funciona    
 }
 
 void imprimirLista(nodo * cabeza){
@@ -77,6 +77,24 @@ void imprimirLista(nodo * cabeza){
         printf("%d\n",actual->valor);
         actual = actual->siguiente;
     }
+
+    // Este método funciona
+}
+
+int agregarNodoAlPrincipio(nodo ** punteroACabeza, int valor){
+    nodo * nuevoNodo = (nodo *)malloc(sizeof(** punteroACabeza));
+
+    if(nuevoNodo == NULL){
+        return -1;
+    }
+
+    nuevoNodo->anterior = NULL;
+    nuevoNodo->valor = valor;
+    nuevoNodo->siguiente = *punteroACabeza;
+    
+    * punteroACabeza = nuevoNodo;
+
+    return 0;
 
     // Este método funciona
 }
