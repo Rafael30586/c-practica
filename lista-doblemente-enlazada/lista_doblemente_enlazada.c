@@ -11,6 +11,7 @@ typedef struct Nodo{
 int agregarNodo(nodo **, int);
 void imprimirLista(nodo *);
 int agregarNodoAlPrincipio(nodo **, int);
+void quitarNodoDelFinal(nodo *);
 
 int main(){
     nodo * cabeza = NULL;
@@ -34,6 +35,10 @@ int main(){
     agregarNodoAlPrincipio(&cabeza, -4);
     agregarNodoAlPrincipio(&cabeza, -5);
 
+    imprimirLista(cabeza);
+
+    quitarNodoDelFinal(cabeza);
+    quitarNodoDelFinal(cabeza);
 
     imprimirLista(cabeza);
 
@@ -95,6 +100,20 @@ int agregarNodoAlPrincipio(nodo ** punteroACabeza, int valor){
     * punteroACabeza = nuevoNodo;
 
     return 0;
+
+    // Este método funciona
+}
+
+void quitarNodoDelFinal(nodo * cabeza){
+    nodo * actual = cabeza;
+
+    while(actual->siguiente->siguiente != NULL){
+        actual = actual->siguiente;
+    }
+
+    free(actual->siguiente);
+
+    actual->siguiente = NULL;
 
     // Este método funciona
 }
