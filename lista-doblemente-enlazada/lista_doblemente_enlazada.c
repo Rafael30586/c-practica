@@ -12,6 +12,7 @@ int agregarNodo(nodo **, int);
 void imprimirLista(nodo *);
 int agregarNodoAlPrincipio(nodo **, int);
 void quitarNodoDelFinal(nodo *);
+void quitarNodoDelPrincipio(nodo **);
 
 int main(){
     nodo * cabeza = NULL;
@@ -39,6 +40,12 @@ int main(){
 
     quitarNodoDelFinal(cabeza);
     quitarNodoDelFinal(cabeza);
+
+    imprimirLista(cabeza);
+
+    quitarNodoDelPrincipio(&cabeza);
+    quitarNodoDelPrincipio(&cabeza);
+    quitarNodoDelPrincipio(&cabeza);
 
     imprimirLista(cabeza);
 
@@ -72,7 +79,7 @@ int agregarNodo(nodo ** cabeza, int valor){
     nuevoNodo->anterior = actual;
     return 0;
 
-   // Este método funciona    
+   // Esta función funciona    
 }
 
 void imprimirLista(nodo * cabeza){
@@ -83,7 +90,7 @@ void imprimirLista(nodo * cabeza){
         actual = actual->siguiente;
     }
 
-    // Este método funciona
+    // Esta función funciona
 }
 
 int agregarNodoAlPrincipio(nodo ** punteroACabeza, int valor){
@@ -101,7 +108,7 @@ int agregarNodoAlPrincipio(nodo ** punteroACabeza, int valor){
 
     return 0;
 
-    // Este método funciona
+    // Esta función funciona
 }
 
 void quitarNodoDelFinal(nodo * cabeza){
@@ -115,6 +122,15 @@ void quitarNodoDelFinal(nodo * cabeza){
 
     actual->siguiente = NULL;
 
-    // Este método funciona
+    // Esta función funciona
 }
+
+void quitarNodoDelPrincipio(nodo ** punteroACabeza){
+    nodo * punteroTemporal = (*punteroACabeza)->siguiente;
+    free(*punteroACabeza);
+    *punteroACabeza = punteroTemporal;
+
+    // Esta función funciona
+}
+
 

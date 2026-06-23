@@ -1,2 +1,3 @@
-Realizar el código para construir una lista enlazada por mi cuenta, en lo posible sin utilizar ayudas
-  * Continuar con el método para agregar un nodo al principio de la lista
+Lista doblemente enlazada
+* Elaborar función para quitar nodo del principio de la lista
+* Elaborar una función para imprimir los valores desde el final hasta el principio
