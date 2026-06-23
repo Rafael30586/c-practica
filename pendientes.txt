@@ -1,3 +1,0 @@
-Lista doblemente enlazada
-* Elaborar función para quitar nodo del principio de la lista
-* Elaborar una función para imprimir los valores desde el final hasta el principio

@@ -13,6 +13,7 @@ void imprimirLista(nodo *);
 int agregarNodoAlPrincipio(nodo **, int);
 void quitarNodoDelFinal(nodo *);
 void quitarNodoDelPrincipio(nodo **);
+void imprimirListaAlreves(nodo *);
 
 int main(){
     nodo * cabeza = NULL;
@@ -48,6 +49,8 @@ int main(){
     quitarNodoDelPrincipio(&cabeza);
 
     imprimirLista(cabeza);
+
+    imprimirListaAlreves(cabeza);
 
     return 0;
 }
@@ -95,10 +98,13 @@ void imprimirLista(nodo * cabeza){
 
 int agregarNodoAlPrincipio(nodo ** punteroACabeza, int valor){
     nodo * nuevoNodo = (nodo *)malloc(sizeof(** punteroACabeza));
-
+    
     if(nuevoNodo == NULL){
         return -1;
     }
+
+
+    (* punteroACabeza)->anterior = nuevoNodo;
 
     nuevoNodo->anterior = NULL;
     nuevoNodo->valor = valor;
@@ -131,6 +137,22 @@ void quitarNodoDelPrincipio(nodo ** punteroACabeza){
     *punteroACabeza = punteroTemporal;
 
     // Esta función funciona
+}
+
+void imprimirListaAlreves(nodo * cabeza){
+    nodo * actual = cabeza;
+
+    while(actual->siguiente != NULL){
+        actual = actual->siguiente;
+    }
+
+    while(actual != NULL){
+        printf("%d\n", actual->valor);
+        actual = actual->anterior;
+    }
+
+    // Esta FUNCIÓN FUNCIONA
+
 }
 
 
